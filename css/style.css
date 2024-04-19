@@ -1,0 +1,186 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:wght@100..900&family=Karla:ital,wght@0,200..800;1,200..800&family=Kumbh+Sans:wght@100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Public+Sans:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+:root {
+  font-size: 62.5%;
+  box-sizing: border-box;
+  /* font */
+  --font-family-universal: "Work Sans", sans-serif;
+  --default-font-size: 1.6rem;
+  --font-sw: 400;
+  --font-mw: 600;
+  --font-lw: 700;
+  /* colors */
+  --light-pink: hsl(275, 100%, 97%);
+  --light-purple: hsl(292, 16%, 49%);
+  --dark-purple: hsl(292, 42%, 14%);
+}
+body {
+  font-size: var(--default-font-size);
+  color: var(--light-purple);
+  font-family: var(--font-family-universal);
+  line-height: 1.6;
+  background-color: var(--light-pink);
+  font-weight: var(--font-sw);
+}
+main {
+  height: 150vh;
+}
+.bg-img {
+  height: 50vh;
+  /* width: 100vw; */
+  /* background-color: aqua; */
+  display: flex;
+  justify-content: center;
+  background-image: url(../assets/images/background-pattern-desktop.svg);
+  background-size: cover;
+  align-items: flex-start;
+  padding: 0 3rem;
+}
+
+.first-ani {
+  animation: moveInFirst 1s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  animation-fill-mode: backwards;
+}
+.second-ani {
+  animation: moveInSecond 1s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  animation-fill-mode: backwards;
+}
+
+.container {
+  background-color: #fff;
+  margin-top: 17rem;
+  max-width: 65rem;
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+  padding: 4rem;
+  padding-bottom: 1rem;
+
+  /* align-items: flex-start; */
+  border-radius: 1.5rem;
+  box-shadow: 0 2rem 5rem 2rem rgba(0, 0, 0, 0.05);
+}
+.container > div {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.icon-stars {
+  height: 4rem;
+}
+.heading-secondary {
+  color: var(--dark-purple);
+  font-size: 5rem;
+  font-weight: var(--font-lw);
+  line-height: 1;
+  font-weight: var(--font-lw);
+  letter-spacing: 0.1px;
+}
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+
+  /* gap: 1rem; */
+}
+.accordion__item {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+.accordion__item:not(:last-child) {
+  border-bottom: 1px solid #f3f3f3;
+  /* padding: 1.5rem 0; */
+}
+.accordion__item > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.accordion__question {
+  font-size: 1.8rem;
+  font-weight: var(--font-mw);
+  color: var(--dark-purple);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.accordion__question:hover {
+  color: var(--light-purple);
+}
+.accordion__answer {
+  /* padding-bottom: 1.5rem; */
+  opacity: 0;
+  overflow: hidden;
+  /* visibility: hidden; */
+  height: 0;
+  transition: all 0.5s ease-in;
+}
+/* jss*/
+.accordion__item.active .accordion__answer {
+  height: 10rem;
+  opacity: 1;
+  padding-bottom: 1rem;
+}
+.accordion__logo {
+  height: 3.5rem;
+}
+.accordion__logo-minus {
+  display: none;
+}
+.accordion__item.active .accordion__logo-minus {
+  display: block;
+  height: 3.5rem;
+}
+.accordion__item.active .accordion__logo {
+  display: none;
+}
+/* media */
+@media only screen and (max-width: 40.625em) {
+  :root {
+    font-size: 56.25%;
+  }
+  .bg-img {
+    background-image: url(../assets/images/background-pattern-mobile.svg);
+  }
+  .container {
+    padding: 2rem;
+    padding-bottom: 1rem;
+  }
+}
+@media only screen and (max-width: 22.5em) {
+  :root {
+    font-size: 50%;
+  }
+}
+/* *********************************88888888888 */
+@keyframes moveInFirst {
+  0% {
+    opacity: 0;
+    transform: translateX(-15rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+@keyframes moveInSecond {
+  0% {
+    opacity: 0;
+    transform: translateX(15rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
